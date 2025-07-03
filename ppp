@@ -1,0 +1,76 @@
+#include <iostream>
+using namespace std;
+
+class node {
+public:
+    int data;
+    node *berikut;
+};
+
+int main() {
+    node *head = NULL;
+    node *ekor = NULL;
+    int jumlah, nilai, pil, wadah;
+    int wadah2 = 0;
+    
+    do{
+    cout<<"1. Tambah data\n";
+    cout<<"2. Tampilkan Data\n";
+    cout<<"3. Hitung jumlah node\n";
+    cout<<"4. Hitung jumlah data\n";
+    cout<<"5. Keluar\n";
+	cout<<"Masukan salah satu : ";
+	cin>>pil;
+	
+	if(pil==1){
+		cout << "Masukkan jumlah node yang ingin dibuat: ";
+    	cin >> jumlah;
+
+    	for (int i = 0; i < jumlah; i++) {
+        	cout << "Masukkan data untuk node ke-"<<i+1<<": ";
+        	cin>>nilai;
+        	wadah += nilai;
+			wadah2 += 1;
+        	node *baru = new node;
+        	baru->data = nilai;
+        	baru->berikut = NULL;
+
+        	if (head == NULL) {
+            	head=baru;
+            	ekor=baru;
+    		} else {
+            	ekor->berikut = baru;
+            	ekor = baru;
+        	}
+    	}	
+	}else if(pil==2){
+		if(wadah == 0 && wadah == 0){
+			cout<<"tidak ada data atau ";
+		}
+		cout << "\nData dalam linked list:\n";
+    	node *jalan = head;
+    	int i = 1;
+    	while (jalan != NULL) {
+        	cout << jalan->data<<"->";
+        	jalan = jalan->berikut;
+        	i++;
+    	}
+    	
+    	cout<<"null\n";
+    	
+	}else if(pil==3){
+		cout << "\nJumlah total node dalam linked list: " << wadah2 << endl;
+	}else if(pil ==4){
+		cout << "\nJumlah total node dalam linked list: " << wadah << endl;
+	}
+	}while(pil != 5);{
+		cout<<"keluar ";
+	}
+	
+    
+
+    
+
+
+    return 0;
+}
